@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mindful Squirrel &dash; 3.0.0 &dash; Data Clustering Contest</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/contest-zoo.css">
+    <script src="../js/jquery-3.4.1.slim.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <style>.brand-photo{display:inline-block;width:40px;height:40px;margin:-.3125rem 0;text-align:center;vertical-align:top;overflow:hidden;}.brand-name{font-size:18px;line-height:16px;font-weight:500;vertical-align:top;margin:.125rem .25rem 0 1rem!important;}.brand-name small{display:inline-block;font-size:13px;font-weight:400;margin-top:.25rem;}.card-cover{width:180px;background:no-repeat center;background-size:cover;border-radius:0 .25rem .25rem 0;display:none;}.text-secondary{color:#6f42c1!important;}.text-truncate-3,.text-truncate-4,.text-truncate-5{display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;}.text-truncate-3{-webkit-line-clamp:3;}.text-truncate-4{-webkit-line-clamp:4;}.text-truncate-5{-webkit-line-clamp:5;}.thread:not(:last-child){flex-grow:1;max-width:100%;}.thread.show{flex:0 0 100%;max-width:100%;}.thread.show .card-body{background-color:#f8f9fa!important;}.btn-outline-warning:hover{color:#fff;}.dropdown-toggle:after{margin-left:.5em;vertical-align:.15em;}</style>
+     <script>
+      $(document).on('show.bs.collapse', '.collapse', function () {
+        $(this).parents('.thread').addClass('show');
+      });
+      $(document).on('hidden.bs.collapse', '.collapse', function () {
+        $(this).parents('.thread').removeClass('show');
+      });
+    </script>
+</head>
+<body class="d-flex flex-column h-100">
+    <header class="bg-light fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light px-0 px-sm-3">
+                <a class="navbar-brand py-0" href="">
+                    <span class="brand-photo rounded-circle"><i class="animal-photo squirrel bc4"></i></span><span class="brand-name d-none d-sm-inline-block"><div><span dir="auto" class="tc4">Mindful Squirrel<span class="d-none d-md-inline"> News</span></span></div><small class="text-muted">v3.0.0</small></span>
+                </a>
+                <div class="flex-fill">
+                    <button class="btn btn-sm btn-outline-secondary" type="button" id="dropdownDateButton">10 May</button>
+                </div>
+                <div class="btn-group btn-group-sm mx-2 mx-sm-3 mx-md-4">
+                    <a class="btn  btn-outline-secondary " href="../en/metrics.html">EN</a>
+                    <a class="btn  btn-secondary " href="../ru/metrics.html">RU</a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="../ru/main.html">Top</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="../ru/metrics.html">Metrics</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="flex-shrink-0 py-5">
+        <div class="container pt-2 pb-1">
+            
+<h1>Categories</h1>
+<div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Category</th>
+      <th scope="col">Precision</th>
+      <th scope="col">Recall</th>
+      <th scope="col">F-1 score</th>
+      <th scope="col">Support</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <th scope="row">society</th>
+      <td>0.969</td>
+      <td>0.969</td>
+      <td>0.969</td>
+      <td>456</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">sports</th>
+      <td>0.986</td>
+      <td>1.0</td>
+      <td>0.993</td>
+      <td>73</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">economy</th>
+      <td>0.846</td>
+      <td>0.965</td>
+      <td>0.902</td>
+      <td>57</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">entertainment</th>
+      <td>0.941</td>
+      <td>0.889</td>
+      <td>0.914</td>
+      <td>54</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">technology</th>
+      <td>0.955</td>
+      <td>0.808</td>
+      <td>0.875</td>
+      <td>26</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">science</th>
+      <td>0.895</td>
+      <td>0.944</td>
+      <td>0.919</td>
+      <td>18</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">other</th>
+      <td>0.917</td>
+      <td>0.786</td>
+      <td>0.846</td>
+      <td>14</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">not_news</th>
+      <td>0.571</td>
+      <td>0.5</td>
+      <td>0.533</td>
+      <td>8</td>
+    </tr>
+    
+    <tr>
+      <th scope="row"> Macro avg </th>
+      <td>0.885</td>
+      <td>0.858</td>
+      <td>0.869</td>
+      <td>706</td>
+    </tr>
+    <tr>
+      <th scope="row"> Accuracy </th>
+      <td></td>
+      <td></td>
+      <td>0.95</td>
+      <td>706</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<details>
+<summary>Errors</summary>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Prediction</th>
+      <th scope="col">Gold</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td><a href=https://35media.ru/articles/2020/05/08/eta-nedelya-100-let-nazad>Эта неделя 100 лет назад</a></td>
+      <td>society</td>
+      <td>not_news</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://actualnews.org/exclusive/344728-v-gosdume-raskritikovali-prodazhi-avtomobilej-naprjamuju-s-zavodov.html>В Госдуме раскритиковали продажи автомобилей напрямую с заводов</a></td>
+      <td>society</td>
+      <td>economy</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://ain.ua/2020/05/05/u-facebook-3-mlrd-polzovatelej/>Приложениями Facebook ежемесячно пользуется более 3 млрд человек. Это 2/3 всех интернет-пользователей</a></td>
+      <td>economy</td>
+      <td>technology</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://ain.ua/2020/05/07/glovo-v-borispole-i-brovarax/>Сервис Glovo заработал в Борисполе и Броварах</a></td>
+      <td>society</td>
+      <td>economy</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://culturavrn.ru/society/30363>Губернатор Александр Гусев отчитался о доходах за 2019 год</a></td>
+      <td>economy</td>
+      <td>society</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://glasnarod.ru/novosti/2-raznye-novosti/318906-ministerstvo-kultury-priglashaet-zabajkalczev-prinyat-uchastie-v-akczii-lokna-pobedyr>Министерство культуры приглашает забайкальцев принять участие в акции «Окна Победы»</a></td>
+      <td>society</td>
+      <td>entertainment</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://info24.ru/news/rossii-predskazali-ochen-zharkoe-leto-i-torfyanye-pozhary.html>России предсказали очень жаркое лето и торфяные пожары</a></td>
+      <td>society</td>
+      <td>other</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://interfax.com.ua/news/general/660123.html>Помощь США Украине на борьбу с пандемией Covid-19 увеличилась до $14,5 млн - посольство</a></td>
+      <td>economy</td>
+      <td>society</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://iz.ru/1009584/2020-05-10/vrach-predupredil-ob-opasnosti-vykhoda-iz-doma-v-zharu-v-usloviiakh-pandemii>Врач предупредила об опасности выхода из дома в жару в условиях пандемии</a></td>
+      <td>other</td>
+      <td>society</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://iz.ru/1009590/2020-05-10/analitiki-nazvali-samye-prodavaemye-gruppy-lekarstv-v-rossii>Аналитики назвали самые продаваемые группы лекарств в России</a></td>
+      <td>economy</td>
+      <td>society</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://kanobu.ru/news/chego-zhdat-otxbox-v2020-godu-423861/>Чего ждать от Xbox в 2020 году</a></td>
+      <td>entertainment</td>
+      <td>technology</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://mos.news/news/zelao/kak-ne-stat-zhertvoy-moshennikov-rasskazyvaet-politsiya-zelenograda--134776/>Как не стать жертвой мошенников: рассказывает полиция Зеленограда</a></td>
+      <td>not_news</td>
+      <td>society</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://mosregtoday.ru/soc/aeroporty-sheremet-evo-i-domodedovo-voshli-v-troyku-luchshih/>Аэропорты Шереметьево и Домодедово вошли в тройку лучших</a></td>
+      <td>economy</td>
+      <td>society</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://nag.ru/news/newsline/106889/-sbermobayl-rasschityivaet-na-chastotyi-dlya-5g-svyazi.html>“Сбермобайл” рассчитывает на частоты для 5G-связи</a></td>
+      <td>economy</td>
+      <td>technology</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://nevasport.ru/140688-idioty-pishut-vsyakuyu-erundu-zhulin-v-shoke-ot-skandala-vokrug-syna-plyushhenko/>«Идиоты пишут всякую ерунду»: Жулин в шоке от скандала вокруг сына Плющенко</a></td>
+      <td>sports</td>
+      <td>entertainment</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://news.finance.ua/ru/news/-/470468/ukrainskim-pensioneram-v-mae-uzhe-vyplatili-11-5-mlrd-grn>Украинским пенсионерам в мае уже выплатили 11,5 млрд грн</a></td>
+      <td>economy</td>
+      <td>society</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://pobeda26.ru/novosti/proisshestviya/na-stavropole-ozhidaetsya-groza-s-shkvalistyim-vetrom>На Ставрополье ожидается гроза с шквалистым ветром</a></td>
+      <td>society</td>
+      <td>other</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://polit.info/494558-ssha-hotyat-ispolzovat-sobstvennye-korabli-dlya-sovmestnyh-s-rf-poletov-na-mks>США хотят использовать собственные корабли для совместных с РФ полетов на МКС</a></td>
+      <td>technology</td>
+      <td>society</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://pravo.ru/news/221465/>Минприроды готовит план по внедрению раздельного сбора мусора</a></td>
+      <td>economy</td>
+      <td>society</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://ria-m.tv/news/191804/politsiya_snyala_deruschihsya_na_ulitse_tallinna_zaytsev_(video).html>Полиция сняла дерущихся на улице Таллинна зайцев (видео)</a></td>
+      <td>society</td>
+      <td>other</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://strana.ua/news/266316-donald-i-melanija-tramp-vozlozhili-venki-k-memorialu-v-chest-dnja-pobedy.html>Дональд и Мелания Трамп в стильных образах возложили венки к мемориалу Второй мировой. Фото</a></td>
+      <td>entertainment</td>
+      <td>society</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://superomsk.ru/news/88491-yota_zapustila_proekt_pro_samoizolyatsiyu_kotory_n/>Yota запустила проект про самоизоляцию, который ничего не советует</a></td>
+      <td>not_news</td>
+      <td>technology</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://t-l.ru/282905.html>Праздничный концерт пройдет у каждого дома ветерана Великой Отечественной войны в Казанском районе</a></td>
+      <td>society</td>
+      <td>entertainment</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://takiedela.ru/2020/05/na-raspade/>На Распаде</a></td>
+      <td>society</td>
+      <td>not_news</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://tass.ru/ekonomika/8399167>"Алроса" приостановит с 15 мая работы на руднике "Айхал" и карьере "Заря" в Якутии</a></td>
+      <td>economy</td>
+      <td>society</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://tass.ru/obschestvo/8402811>Магаданский оркестр объединил артистов России в уникальный проект "Символ Победы"</a></td>
+      <td>society</td>
+      <td>entertainment</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://topspb.tv/news/2020/05/6/v-minzdrave-rasskazali-ob-ispytaniyah-vakcin-ot-koronavirusa/>В Минздраве рассказали об испытаниях вакцин от коронавируса</a></td>
+      <td>society</td>
+      <td>science</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://tsargrad.tv/news/onishhenko-predupredil-o-koronaviruse-v-holodilnike-tam-on-horosho-sohranjaetsja_252716>Онищенко предупредил о коронавирусе в холодильнике: "Там он хорошо сохраняется"</a></td>
+      <td>science</td>
+      <td>society</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://white.d3.ru/muzeinye-starushki-1975278/>Музейные старушки</a></td>
+      <td>entertainment</td>
+      <td>not_news</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://www.iphones.ru/iNotes/veshch-brelok-prevrashchayushchiy-iphone-v-universalnyy-pult-05-07-2020>Вещь. Инфракрасный порт для iPhone, чтобы управлять телевизором</a></td>
+      <td>not_news</td>
+      <td>technology</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://www.mk.ru/social/2020/05/05/uchenye-iz-knr-prizvali-italyanskie-vlasti-prodlit-karantin-do-avgusta.html>Ученые из КНР призвали итальянские власти продлить карантин до августа</a></td>
+      <td>science</td>
+      <td>society</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://www.mk.ru/social/2020/05/08/voz-do-konca-goda-na-borbu-s-pandemiey-potrebuetsya-17-mlrd.html>ВОЗ: до конца года на борьбу с пандемией потребуется $1,7 млрд</a></td>
+      <td>economy</td>
+      <td>society</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://www.panram.ru/news/society/v-rostovskoy-leventsovke-ansambl-pesni-i-plyaski-yuvo-ustroil-kontsert-dlya-desyatka-veteranov/>В ростовской Левенцовке ансамбль песни и пляски ЮВО устроил концерт для ветеранов</a></td>
+      <td>society</td>
+      <td>entertainment</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://www.sq.com.ua/rus/news/polezno_znat/08.05.2020/harkovskiy_nyurnberg_pervyy_sud_nad_natsistskimi_prestupnikami/>Харьковский Нюрнберг. Первый суд над нацистскими преступниками</a></td>
+      <td>society</td>
+      <td>not_news</td>
+    </tr>
+    
+    <tr>
+      <td><a href=https://www.yuga.ru/news/450418/?utm_source=telegram&utm_medium=news>В Сочи на доме нарисовали граффити с портретами героинь повести «А зори здесь тихие»</a></td>
+      <td>society</td>
+      <td>entertainment</td>
+    </tr>
+    
+  </tbody>
+</table>
+</details>
+
+        </div>
+    </main>
+</body>
+</html>
